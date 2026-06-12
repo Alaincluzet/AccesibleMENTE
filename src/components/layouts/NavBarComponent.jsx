@@ -4,15 +4,13 @@ function NavbarComponent() {
   return (
     <nav className="navbar navbar-expand mi-navbar">
       <div className="container-fluid">
-
         <Link className="navbar-brand" to="/">
           AccesibleMENTE
         </Link>
 
         <ul className="navbar-nav ms-auto flex-row">
-
           <li className="nav-item mx-3">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/sobre-nosotros">
               Sobre Nosotros
             </Link>
           </li>
@@ -30,19 +28,13 @@ function NavbarComponent() {
 
             <ul className="dropdown-menu">
               <li>
-                <Link
-                  className="dropdown-item"
-                  to="/profesionales/psicologia"
-                >
+                <Link className="dropdown-item" to="/profesionales/psicologia">
                   Psicología
                 </Link>
               </li>
 
               <li>
-                <Link
-                  className="dropdown-item"
-                  to="/profesionales/psiquiatria"
-                >
+                <Link className="dropdown-item" to="/profesionales/psiquiatria">
                   Psiquiatría
                 </Link>
               </li>
@@ -63,9 +55,7 @@ function NavbarComponent() {
               Iniciar/Registrarse
             </Link>
           </li>
-
         </ul>
-
       </div>
     </nav>
   );
