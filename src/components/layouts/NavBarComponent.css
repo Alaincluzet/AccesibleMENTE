@@ -1,0 +1,41 @@
+.mi-navbar {
+    background-color: #e6cfb3;
+    height: 90px;
+}
+
+.navbar-brand {
+    color: #355c4d !important;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    gap: 2rem;
+}
+
+.nav-link {
+    position: relative;
+    color: #355c4d !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 2px;
+
+    background-color: #355c4d;
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
