@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import FooterComponent from "./components/layouts/FooterComponent";
 import Home from "./pages/Home";
 import NavbarComponent from "./components/layouts/NavBarComponent";
 import AboutUs from "./pages/AboutUs";
@@ -13,7 +13,9 @@ function App() {
         <Route path="/sobre-nosotros" element={<AboutUs />} />
         <Route path="/profesionales" element={<Professionals />} />
       </Routes>
+     <FooterComponent/>
     </BrowserRouter>
+    
   );
 }
 

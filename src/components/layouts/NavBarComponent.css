@@ -16,17 +16,27 @@
     height: 90px;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+}
+.logo-navbar {
+    height: 55px;
+    width: auto;
 }
 
-.navbar-brand {
+.texto-logo {
     font-family: 'Tan Nimbus', sans-serif;
-    color: #355c4d !important;
+    color: #355c4d;
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 2px;
-   }
-    
 
+    margin-left: 13px;
+    top: 7px;
+    transform: translateY(12px);
+}
 .navbar-nav {
     gap: 2rem;
 }
@@ -37,8 +47,6 @@
     font-weight: 500;
     text-decoration: none;
 }
-
-
 
 .nav-link::after {
     content: "";

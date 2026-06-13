@@ -1,11 +1,21 @@
 import "./NavbarComponent.css";
 import { Link } from "react-router-dom";
+
 function NavbarComponent() {
   return (
     <nav className="navbar navbar-expand mi-navbar">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          AccesibleMENTE
+
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <img
+            src="/logo navbar-footer - copia.png"
+            alt="AccesibleMENTE"
+            className="logo-navbar"
+          />
+
+          <span className="texto-logo">
+            AccesibleMENTE
+          </span>
         </Link>
 
         <ul className="navbar-nav ms-auto flex-row">
@@ -15,40 +25,11 @@ function NavbarComponent() {
             </Link>
           </li>
 
-          <li className="nav-item dropdown mx-3">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Profesionales
-            </a>
-
-            <ul className="dropdown-menu">
-              <li>
-                <Link className="dropdown-item" to="/profesionales/psicologia">
-                  Psicología
-                </Link>
-              </li>
-
-              <li>
-                <Link className="dropdown-item" to="/profesionales/psiquiatria">
-                  Psiquiatría
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  className="dropdown-item"
-                  to="/profesionales/psicopedagogia"
-                >
-                  Psicopedagogía
-                </Link>
-              </li>
-            </ul>
-          </li>
+         <li className="nav-item mx-3">
+         <Link className="nav-link" to="/profesionales">
+         Profesionales
+         </Link>
+         </li>
 
           <li className="nav-item mx-3">
             <Link className="nav-link" to="/">
