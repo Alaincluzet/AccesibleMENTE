@@ -19,9 +19,8 @@ function NavbarComponent() {
         </Link>
 
         <ul className="navbar-nav ms-auto flex-row">
-
           <li className="nav-item mx-3">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/sobre-nosotros">
               Sobre Nosotros
             </Link>
           </li>
@@ -37,9 +36,7 @@ function NavbarComponent() {
               Iniciar/Registrarse
             </Link>
           </li>
-
         </ul>
-
       </div>
     </nav>
   );
