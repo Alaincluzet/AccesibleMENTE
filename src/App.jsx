@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import FooterComponent from "./components/layouts/FooterComponent";
 import Home from "./pages/Home";
 import NavbarComponent from "./components/layouts/NavBarComponent";
 
@@ -10,8 +10,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-
+     <FooterComponent/>
     </BrowserRouter>
+    
   );
 }
 
