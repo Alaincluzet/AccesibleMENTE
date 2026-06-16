@@ -13,9 +13,9 @@ function AboutUs() {
             sencillo:
           </p>
           <ul>
-            <li>-Creas tu usuario</li>
-            <li>-Buscás el terapeuta que se adecúe a tus necesidades.</li>
-            <li>-Listo, empezas tu proceso terapéutico.</li>
+            <li>Creas tu usuario</li>
+            <li>Buscás el terapeuta que se adecúe a tus necesidades.</li>
+            <li>Listo, empezas tu proceso terapéutico.</li>
           </ul>
           <p id="text">
             ¿No contas con recursos? Ponete en contacto con nosotros y evaluamos
