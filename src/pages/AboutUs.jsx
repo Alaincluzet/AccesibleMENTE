@@ -33,7 +33,10 @@ function AboutUs() {
             La misión de esta aplicación web es facilitar y agilizar la gestión
             a los profesionales y que todos los pacientes encuentren un
             terapeuta que se ajuste a su presupuesto, a sus horarios y a su
-            modalidad predilecta.
+            modalidad predilecta. Pensamos que una vida digna es aquella en la
+            que tengo todas mis necesidades materiales cubiertas y la
+            posibilidad de desarrollar mi potencial como ser humano. Ésta web,
+            está creada para que puedas poner en ejercicio ésta última parte.
           </p>
         </article>
 
@@ -51,8 +54,12 @@ function AboutUs() {
         <article className="about-card">
           <h3>Equipo</h3>
           <p>
-            Este e-commerce fue realizado por Rafaella Camarri, Ignacio
-            Fernandez y Alain Cluzet
+            Esta idea fue diseñada y pensada por estudiantes de Anima, la idea
+            se presentó estudiando el concepto de vida digna y se trabajó en
+            conjunto para darle vida a lo que hoy llamamos AccesibleMENTE, una
+            web que nació ante una necesidad ciudadana estudiada y comprobada.
+            El equipo que hizo realidad esta web fueron Rafaella Camarri,
+            Ignacio Fernandez y Alain Cluzet
           </p>
         </article>
       </section>

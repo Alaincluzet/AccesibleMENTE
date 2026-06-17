@@ -65,10 +65,14 @@
 .about-card h3 {
   margin: 0 0 12px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
 }
 .about-card p {
   margin: 0;
   line-height: 1.4;
+  display: flex;
+  text-align: justify;
 }
 .about-info {
   max-width: 1100px;
@@ -105,7 +109,7 @@
   color: #111;
 }
 .about-register a {
-  color: #b8d462;
+  color: #95a868;
   text-decoration: none;
   font-weight: 700;
 }
