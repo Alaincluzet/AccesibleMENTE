@@ -34,7 +34,7 @@ function NavbarComponent() {
             </Link>
           </li>
           <li className="nav-item mx-3">
-            <Link className="nav-link" to="/signUp">
+            <Link className="nav-link" to="/registro">
               Registrarse
             </Link>
           </li>
