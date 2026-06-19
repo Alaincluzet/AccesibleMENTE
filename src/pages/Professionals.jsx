@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import "./Professionals.css";
-
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 const specialties = [
   "Todas",
   "Psiquiatría",
@@ -31,82 +32,70 @@ const carouselItems = [
   },
 ];
 
-function randomPrice() {
-  return Math.floor((Math.random() * (1500 - 800)) / 100 + 8) * 100;
-}
-
 const professionals = [
   {
     name: "Dra. Franchesca Gomez",
     specialty: "Psiquiatría",
     focus: "Ansiedad, depresión y seguimiento farmacológico/psiquiátrico",
     schedule: "Hoy 11:30",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 1200,
   },
+
   {
     name: "Lic. Olivia González",
     specialty: "Psicología",
     focus: "Terapia cognitivo conductual para adultos",
     schedule: "Hoy 16:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 900,
   },
   {
     name: "Lic. Soffia Linners",
     specialty: "Psicopedagogía",
     focus: "Dificultades de aprendizaje y orientación escolar",
     schedule: "Lun 16:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 1000,
   },
   {
-    name: "Lic. Diego Ramierez",
+    name: "Lic. Diego Ramírez",
     specialty: "Psicología infantil",
     focus: "Infancias, juego terapéutico y vínculos familiares",
     schedule: "Lun 09:30",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 800,
   },
   {
     name: "Lic. Alicia Maravilla",
     specialty: "Terapia de pareja",
     focus: "Comunicación, acuerdos y acompañamiento vincular",
     schedule: "Mar 19:00",
-    avatar: "AM",
-    price: randomPrice(),
+    price: 1400,
   },
   {
     name: "Dra. Santino Olivera",
     specialty: "Psiquiatría",
     focus: "Salud mental perinatal y regulación emocional",
     schedule: "Mie 12:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 1100,
   },
   {
     name: "Dr. Ramiro Gonzalez",
     specialty: "Psiquiatría",
     focus: "Salud mental perinatal y regulación emocional",
     schedule: "Jue 12:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 900,
   },
   {
     name: "Dra. Virginia López",
-    specialty: "Psicologo",
+    specialty: "Psicología",
     focus: "Salud mental perinatal y regulación emocional",
     schedule: "Vie 16:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 1300,
   },
   {
-    name: "Dra. Santino Olivera",
-    specialty: "Psicopedadoga",
+    name: "Lic. Carmen Suárez",
+    specialty: "Psicopedagogía",
     focus: "Dificultades de aprendizaje y orientación escolar",
     schedule: "Vie 10:00",
-    avatar: "imagen",
-    price: randomPrice(),
+    price: 1000,
   },
 ];
 
@@ -117,13 +106,14 @@ function Professionals() {
   const [selectedSpecialty, setSelectedSpecialty] = useState("Todas");
   const [activeSlide, setActiveSlide] = useState(0);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
-
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const filteredProfessionals = useMemo(() => {
     return professionals.filter((p) => {
       const matchesSpecialty =
         selectedSpecialty === "Todas" || p.specialty === selectedSpecialty;
-      const matchesPrice = p.price <= maxPrice;
-      return matchesSpecialty && matchesPrice;
+      return matchesSpecialty && p.price <= maxPrice;
     });
   }, [selectedSpecialty, maxPrice]);
 
@@ -144,9 +134,10 @@ function Professionals() {
         <aside className="mh-sidebar">
           <div>
             <p className="mh-eyebrow">Especialidades</p>
-            <h2 className="mh-sidebar-title">Filtra por profesional</h2>
+            <h2 className="mh-sidebar-title text-center">
+              Elige la especialidad que buscas
+            </h2>
           </div>
-
           <div className="mh-chip-list" role="list">
             {specialties.map((sp) => (
               <button
@@ -159,7 +150,6 @@ function Professionals() {
               </button>
             ))}
           </div>
-
           <div className="mh-price-filter">
             <p className="mh-eyebrow">Precio por consulta</p>
             <p className="mh-price-value">
@@ -192,17 +182,16 @@ function Professionals() {
               {currentSlide.title}
             </h2>
             <p className="mh-carousel-text">{currentSlide.text}</p>
-
             <div className="mh-carousel-controls">
               <button
                 type="button"
                 className="mh-carousel-btn"
                 onClick={() => moveSlide(-1)}
-                aria-label="Ver servicio anterior"
+                aria-label="Anterior"
               >
                 ‹
               </button>
-              <div className="mh-dots" aria-label="Diapositivas">
+              <div className="mh-dots">
                 {carouselItems.map((item, i) => (
                   <button
                     key={item.title}
@@ -217,14 +206,86 @@ function Professionals() {
                 type="button"
                 className="mh-carousel-btn"
                 onClick={() => moveSlide(1)}
-                aria-label="Ver servicio siguiente"
+                aria-label="Siguiente"
               >
                 ›
               </button>
             </div>
           </div>
         </article>
+        <aside className="mh-help-panel">
+          <div className="mh-help-body">
+            <div>
+              <p className="mh-eyebrow">Comenzá hoy</p>
+              <h2 className="mh-help-title">Agenda tu primera consulta</h2>
+            </div>
+            <p className="mh-help-text">
+              Elegí el profesional que mejor se adapte a tus necesidades y
+              reservá tu horario en pocos minutos.
+            </p>
+            <div>
+              <ol>✅Agenda inmediata</ol>
+              <ol>✅Atención online</ol>
+              <ol>✅ Profesionales certificados</ol>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setShowModal(true);
+              setShowForm(false);
+              setSelectedDate(null);
+            }}
+            className="mh-help-btn"
+          >
+            Solicitar agenda
+          </button>
+          {showModal && (
+            <div className="agenda-modal-overlay">
+              <div className="agenda-modal">
+                <button
+                  type="button"
+                  className="agenda-modal-close"
+                  onClick={() => {
+                    setShowModal(false);
+                    setShowForm(false);
+                    setSelectedDate(null);
+                  }}
+                >
+                  x
+                </button>
+                <h2>Solicitar agenda</h2>
+                {!showForm && (
+                  <>
+                    <p>Seleccioná una fecha para tu consulta.</p>
+                    <Calendar
+                      onChange={(date) => {
+                        setSelectedDate(date);
+                        setShowForm(true);
+                      }}
+                      value={selectedDate}
+                    />
+                  </>
+                )}
+                {showForm && (
+                  <form>
+                    <p>
+                      Fecha seleccionada: {""}
+                      {selectedDate.toLocaleDateString("es-UY")}
+                    </p>
+                    <input type="text" placeholder="Nombre completo" />
+                    <input type="email" placeholder="Correo electrónico" />
+                    <input type="tel" placeholder="Teléfono o celular" />
+                    <textarea placeholder="Motivo de consulta"></textarea>
+                    <button type="submit">Enviar solicitud</button>
+                  </form>
+                )}
+              </div>
+            </div>
+          )}
+        </aside>
       </div>
+
       <div className="mh-grid-heading">
         <div>
           <p className="mh-eyebrow">Profesionales</p>
@@ -235,25 +296,28 @@ function Professionals() {
           {filteredProfessionals.length !== 1 ? "s" : ""}
         </p>
       </div>
+
+      {/*Loco*/}
       <div className="mh-grid">
         {filteredProfessionals.map((professional) => (
-          <article key={professional.name} className="mh-card">
+          <article
+            key={`${professional.name}-${professional.schedule}`}
+            className="mh-card"
+          >
             <div className="mh-card-horizontal">
-              <div className="mh-avatar" aria-hidden="true">
+              <div className="mh-avatar">
                 <img
                   className="mh-avatar-img"
                   src="https://www.flexengage.com/wp-content/uploads/2020/05/iconb.png"
-                  alt="foto de perfil de cada profesional"
+                  alt={`Foto de ${professional.name}`}
                 />
               </div>
-
               <div className="mh-card-info">
                 <h3 className="mh-card-name">{professional.name}</h3>
                 <p className="mh-card-specialty">{professional.specialty}</p>
                 <p className="mh-card-focus">{professional.focus}</p>
               </div>
             </div>
-
             <div className="mh-card-footer">
               <span className="mh-card-schedule">
                 📅 {professional.schedule}
