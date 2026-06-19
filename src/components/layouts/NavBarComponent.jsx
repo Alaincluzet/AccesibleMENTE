@@ -5,7 +5,6 @@ function NavbarComponent() {
   return (
     <nav className="navbar navbar-expand mi-navbar">
       <div className="container-fluid">
-
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
             src="/logo navbar-footer - copia.png"
@@ -13,9 +12,7 @@ function NavbarComponent() {
             className="logo-navbar"
           />
 
-          <span className="texto-logo">
-            AccesibleMENTE
-          </span>
+          <span className="texto-logo">AccesibleMENTE</span>
         </Link>
 
         <ul className="navbar-nav ms-auto flex-row">
@@ -25,15 +22,20 @@ function NavbarComponent() {
             </Link>
           </li>
 
-         <li className="nav-item mx-3">
-         <Link className="nav-link" to="/profesionales">
-         Profesionales
-         </Link>
-         </li>
+          <li className="nav-item mx-3">
+            <Link className="nav-link" to="/profesionales">
+              Profesionales
+            </Link>
+          </li>
 
           <li className="nav-item mx-3">
-            <Link className="nav-link" to="/">
-              Iniciar/Registrarse
+            <Link className="nav-link" id="logIn">
+              Iniciar sesión
+            </Link>
+          </li>
+          <li className="nav-item mx-3">
+            <Link className="nav-link" to="/registro">
+              Registrarse
             </Link>
           </li>
         </ul>

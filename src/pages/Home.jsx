@@ -23,7 +23,7 @@ function Home() {
           </div>
 
           <div className="home-card">
-            <h2>Sos profesional</h2>
+            <h2>¿Sos profesional de la salud mental y estás buscando ampliar tu espectro de pacientes?</h2>
 
             <p>
               Sumate a nuestra red de profesionales y conectá con personas que
