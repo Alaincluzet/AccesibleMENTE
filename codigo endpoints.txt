@@ -1,0 +1,117 @@
+const express = require("express")
+const app = express()
+
+app.use(express.json())
+
+
+const productos = [
+{id: 1, nombre:"Mousepad con almohadilla"},
+{id: 2, nombre:"Parlante Bluetooth"},
+{id: 3, nombre:"Cable HDMI"},
+{id: 4, nombre:"Pendrive 16gb"}
+]
+function listarProductos(){
+    console.log(productos)
+}
+
+
+function agregarProducto(nombre) {
+  const nuevoProducto = {
+    id: productos.length + 1,
+    nombre: nombre,
+  };
+  productos.push(nuevoProducto);
+  console.log(
+  "Producto agregado - ID: " + nuevoProducto.id + " Nombre: " +
+  nuevoProducto.nombre
+);
+}
+
+function buscarProducto(id) {
+
+  const productoEncontrado = productos.find(
+    producto => producto.id === id
+  );
+
+  console.log(
+    "Producto encontrado - ID: " +
+    productoEncontrado.id +
+    " | Producto: " +
+    productoEncontrado.nombre
+  );
+  }
+
+function modificarProducto(id, nuevoNombre) {
+
+  const productoModificado = productos.find(
+    producto => producto.id === id
+  );
+  productoModificado.nombre = nuevoNombre;
+  console.log(
+    "Producto modificado - ID: " +
+    productoModificado.id +
+    " | Producto: " +
+    productoModificado.nombre
+  );
+  }
+
+
+app.get("/", (req, res) => {
+  res.send("Bienvenido a mi Backend")
+})
+
+app.get("/productos", (req, res) => {
+  res.json(productos)
+})
+app.get("/productos/:id", (req, res) => {
+
+  const productoEncontrado = productos.find(
+    producto => producto.id == req.params.id
+  )
+
+  res.send(productoEncontrado)
+
+})
+app.post("/productos", (req, res) => {
+
+  if (!req.body.nombre) {
+    return res.send("Nombre del producto NO ingresado")
+  }
+
+  const nuevoProducto = {
+    id: productos.length + 1,
+    nombre: req.body.nombre
+  }
+
+  productos.push(nuevoProducto)
+
+  res.send("Producto agregado")
+
+})
+app.put("/productos/:id", (req, res) => {
+
+  const productoModificado = productos.find(
+    producto => producto.id == req.params.id
+  )
+
+  productoModificado.nombre = req.body.nombre
+
+  res.send("Producto modificado")
+
+})
+app.delete("/productos/:id", (req, res) => {
+
+  const productoEliminado = productos.findIndex(
+    producto => producto.id == req.params.id
+  )
+
+  productos.splice(productoEliminado, 1)
+
+  res.send("Producto eliminado")
+
+})
+
+
+app.listen(3000, () => {
+  console.log("Servidor corriendo en http://localhost:3000");
+});
