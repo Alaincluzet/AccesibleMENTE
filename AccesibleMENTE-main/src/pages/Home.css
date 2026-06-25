@@ -4,40 +4,23 @@
   font-weight: 700;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Sora";
   src: url("/fonts/sora-ExtraBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
-
-
-
-.home-container {
-  min-height: calc(100vh - 90px);
-  padding-bottom: 60px; 
-}
-
-
 .home-header {
   font-family: "Rowdies", sans-serif;
   font-weight: 700;
-  font-size: 30px;
-
-  max-width: 900px;
-
+  font-size: 64px;
+  letter-spacing: 1.5px;
   margin-top: 35px;
   margin-left: 45px;
-
-  text-align: justify;
-  line-height: 1.6;
-
   color: #1c3a04;
-
-  --animate-duration: 2.8s;
-  --animate-easing: ease-out;
+  
 }
+
 
 .home-header h1 {
   font-family: "Sora", sans-serif;
@@ -51,94 +34,74 @@
   text-align: justify;
   line-height: 1.6;
 }
+.home-header  {
+  font-size: 30px;
+  letter-spacing: 0;
+  max-width: 900px;
+  text-align: justify;
+  line-height: 1.6;
+}
 
 
+.home-container {
+    min-height: calc(100vh - 90px);
+    
+}
 
 .cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
 
-  gap: 60px;
-
-  margin-top: 60px;
-
-  
-  --animate-duration: 2s;
-  --animate-easing: ease-out;
+    margin-top: 60px;
 }
-
-
 
 .home-card {
-  width: 580px;
-  min-height: 420px;
-  height: auto;
+    width: 620px;
+    height: 450px;
 
-  background-color: rgba(193, 204, 173, 0.8);
+    background-color: rgba(193, 204, 173, 0.8);
 
-  border-radius: 40px;
+    border-radius: 50px;
 
-  padding: 40px;
+    padding: 40px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
- 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-
-  will-change: transform;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
-
-.home-card:hover {
-  transform: translateY(-6px);
-}
-
-
 
 .home-card h2 {
-  color: black;
-  font-size: 1.8rem;
+    color: black;
+    font-size: 2rem;
 }
 
 .home-card p {
-  font-size: 1.3rem;
-  line-height: 1.5;
+    font-size: 1.5rem;
+    line-height: 1.5;
 }
-
-
 
 .btn-card {
-  width: 220px;
-  height: 65px;
+    width: 220px;
+    height: 70px;
 
-  align-self: center;
+    align-self: center;
 
-  border: 2px solid white;
-  border-radius: 40px;
+    border: 2px solid white;
+    border-radius: 40px;
 
-  background-color: #bfd48e;
+    background-color: #bfd48e;
 
-  font-size: 1.2rem;
+    font-size: 1.3rem;
 
-  cursor: pointer;
-
-  transition: transform 0.25s ease, background-color 0.25s ease;
+    cursor: pointer;
 }
 
-.btn-card:hover {
-  transform: scale(1.03);
-  background-color: #aecd7a;
-}
+.slogan {
+    text-align: center;
 
+    margin-top: 30px;
 
-@media (prefers-reduced-motion: reduce) {
-  .home-card,
-  .btn-card,
-  .home-header {
-    animation: none !important;
-    transition: none !important;
-  }
+    color: #5d756d;
+    font-size: 3rem;
 }
