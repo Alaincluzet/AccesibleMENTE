@@ -1,0 +1,61 @@
+.home-container {
+    min-height: calc(100vh - 90px);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+
+    margin-top: 60px;
+}
+
+.home-card {
+    width: 620px;
+    height: 450px;
+
+    background-color: rgba(193, 204, 173, 0.8);
+
+    border-radius: 50px;
+
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-card h2 {
+    color: black;
+    font-size: 2rem;
+}
+
+.home-card p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.btn-card {
+    width: 220px;
+    height: 70px;
+
+    align-self: center;
+
+    border: 2px solid white;
+    border-radius: 40px;
+
+    background-color: #bfd48e;
+
+    font-size: 1.3rem;
+
+    cursor: pointer;
+}
+
+.slogan {
+    text-align: center;
+
+    margin-top: 30px;
+
+    color: #5d756d;
+    font-size: 3rem;
+}
