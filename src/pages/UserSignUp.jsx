@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function UserSignUp() {
   const [tipoUsuario, setTipoUsuario] = useState("");
@@ -6,6 +7,7 @@ function UserSignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [tieneAntecedentes, setTieneAntecedentes] = useState("");
   const [tomaMedicacion, setTomaMedicacion] = useState(false);
+  const [cedula, setCedula] = useState("");
 
   return (
     <div className="container py-5">
@@ -13,97 +15,75 @@ function UserSignUp() {
         <div className="col-md-8">
           <div className="card shadow">
             <div className="card-body">
-              <h2 className="text-center mb-4">
-                Registro
-              </h2>
+              <h2 className="text-center mb-4">Registro</h2>
 
               <form>
-                
                 <div className="mb-3">
-                  <label className="form-label">
-                    Tipo de usuario
-                  </label>
+                  <label className="form-label">Tipo de usuario</label>
 
                   <select
                     className="form-select"
                     value={tipoUsuario}
                     onChange={(e) => setTipoUsuario(e.target.value)}
                   >
-                    <option value="">
-                      Seleccionar
-                    </option>
-
-                    <option value="paciente">
-                      Paciente
-                    </option>
-
-                    <option value="profesional">
-                      Profesional
-                    </option>
+                    <option value="">Seleccionar</option>
+                    <option value="paciente">Paciente</option>
+                    <option value="profesional">Profesional</option>
                   </select>
                 </div>
 
-                
-                <div className="mb-3">
-                  <label className="form-label">
-                    Nombre completo
-                  </label>
+                {tipoUsuario === "profesional" && (
+                  <div className="mb-3">
+                    <label className="form-label">Cédula de identidad</label>
 
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={cedula}
+                      onChange={(e) => setCedula(e.target.value)}
+                      placeholder="Ej: 12345678"
+                      required
+                    />
+                  </div>
+                )}
+
+                <div className="mb-3">
+                  <label className="form-label">Nombre completo</label>
+                  <input type="text" className="form-control" />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Correo electrónico</label>
+                  <input type="email" className="form-control" required />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Teléfono</label>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    pattern="[0-9]{8,15}"
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Fecha de nacimiento</label>
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="dd/mm/aaaa"
+                    pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$"
+                    title="Formato: dd/mm/aaaa"
+                    required
                   />
                 </div>
 
-                <div className="mb-3">
-                  <label className="form-label">
-                    Correo electrónico
-                  </label>
-
-                  <input
-                 type="email"
-                 className="form-control"
-                  required
-                 />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label">
-                    Teléfono
-                  </label>
-
-                  <input
-                 type="tel"
-                  className="form-control"
-                  pattern="[0-9]{8,15}"
-                  required
-                  />
-                </div>
-
-                <div className="mb-3">
-                 <label className="form-label">
-                 Fecha de nacimiento
-                 </label>
-
-                 <input
-                 type="text"
-                 className="form-control"
-                 placeholder="dd/mm/aaaa"
-                 pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$"
-                 title="Formato: dd/mm/aaaa"
-                 required
-                 />
-                </div>
-
-
-                
                 {tipoUsuario === "paciente" && (
                   <>
                     <hr />
 
-                    <h4 className="mb-3">
-                      Motivo de consulta
-                    </h4>
+                    <h4 className="mb-3">Motivo de consulta</h4>
 
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
@@ -114,9 +94,7 @@ function UserSignUp() {
 
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">
-                        Estrés
-                      </label>
+                      <label className="form-check-label">Estrés</label>
                     </div>
 
                     <div className="form-check">
@@ -128,9 +106,7 @@ function UserSignUp() {
 
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">
-                        Autoestima
-                      </label>
+                      <label className="form-check-label">Autoestima</label>
                     </div>
 
                     <div className="form-check">
@@ -146,6 +122,7 @@ function UserSignUp() {
                         Problemas de pareja
                       </label>
                     </div>
+
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
@@ -160,21 +137,22 @@ function UserSignUp() {
                       </label>
                     </div>
 
-                    <h4 className="mt-4">
-                      Síntomas actuales
-                    </h4>
-                     <div className="form-check">
+                    <h4 className="mt-4">Síntomas actuales</h4>
+
+                    <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Tristeza/angustia constante
                       </label>
                     </div>
+
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
-                        Preocupación excesiva 
+                        Preocupación excesiva
                       </label>
                     </div>
+
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
@@ -188,6 +166,7 @@ function UserSignUp() {
                         Cansancio o falta de energía
                       </label>
                     </div>
+
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
@@ -197,9 +176,7 @@ function UserSignUp() {
 
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">
-                        Irritabilidad
-                      </label>
+                      <label className="form-check-label">Irritabilidad</label>
                     </div>
 
                     <div className="form-check">
@@ -222,13 +199,6 @@ function UserSignUp() {
                         Cambios en el apetito
                       </label>
                     </div>
-                     
-                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">
-                        Siento que mi entorno está en mi contra a menudo 
-                      </label>
-                    </div>
 
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" />
@@ -237,9 +207,7 @@ function UserSignUp() {
                       </label>
                     </div>
 
-                    <h4 className="mt-4">
-                      Antecedentes de salud mental
-                    </h4>
+                    <h4 className="mt-4">Antecedentes de salud mental</h4>
 
                     <div className="form-check">
                       <input
@@ -248,13 +216,10 @@ function UserSignUp() {
                         name="antecedentes"
                         value="no"
                         checked={tieneAntecedentes === "no"}
-                        onChange={(e) =>
-                          setTieneAntecedentes(e.target.value)
-                        }
+                        onChange={(e) => setTieneAntecedentes(e.target.value)}
                       />
-
                       <label className="form-check-label">
-                        Nunca he recibido atención de un profesional de salud mental
+                        Nunca he recibido atención
                       </label>
                     </div>
 
@@ -265,11 +230,8 @@ function UserSignUp() {
                         name="antecedentes"
                         value="si"
                         checked={tieneAntecedentes === "si"}
-                        onChange={(e) =>
-                          setTieneAntecedentes(e.target.value)
-                        }
+                        onChange={(e) => setTieneAntecedentes(e.target.value)}
                       />
-
                       <label className="form-check-label">
                         Sí, he recibido atención anteriormente
                       </label>
@@ -278,13 +240,9 @@ function UserSignUp() {
                     {tieneAntecedentes === "si" && (
                       <>
                         <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                          />
-
+                          <input className="form-check-input" type="checkbox" />
                           <label className="form-check-label">
-                            Actualmente realizo terapia psicológica
+                            Actualmente hago terapia
                           </label>
                         </div>
 
@@ -297,183 +255,71 @@ function UserSignUp() {
                               setTomaMedicacion(e.target.checked)
                             }
                           />
-
                           <label className="form-check-label">
-                            Actualmente tomo medicación psiquiátrica
+                            Tomo medicación psiquiátrica
                           </label>
                         </div>
 
                         {tomaMedicacion && (
                           <div className="mt-3">
                             <label className="form-label">
-                              ¿Qué medicación tomás actualmente?
+                              ¿Qué medicación?
                             </label>
-
-                            <textarea
-                              className="form-control"
-                              rows="3"
-                              placeholder="Ej: Sertralina 50mg, Clonazepam 2mg..."
-                            />
+                            <textarea className="form-control" rows="3" />
                           </div>
                         )}
                       </>
                     )}
-
-                    <div className="mt-4">
-                      <label className="form-label">
-                        ¿Qué tan afectado/a te sentís actualmente?
-                      </label>
-
-                      <select className="form-select">
-                        <option>Seleccionar</option>
-                        <option>Leve</option>
-                        <option>Moderado</option>
-                        <option>Alto</option>
-                        <option>Muy alto</option>
-                      </select>
-                    </div>
-
-                    <div className="mt-4">
-                      <label className="form-label">
-                        ¿Qué modalidad preferís para las consultas?
-                      </label>
-
-                      <select className="form-select">
-                        <option value="">
-                          Seleccionar
-                        </option>
-
-                        <option value="online">
-                          Online
-                        </option>
-
-                        <option value="presencial">
-                          Presencial
-                        </option>
-
-                        <option value="ambas">
-                          Me resulta indiferente
-                        </option>
-                      </select>
-                    </div>
-
-                    <div className="mt-4">
-                      <label className="form-label">
-                        ¿Qué tipo de profesional considerás que necesitás?
-                      </label>
-
-                      <select className="form-select">
-                        <option value="">
-                          Seleccionar
-                        </option>
-
-                        <option value="psicologia">
-                          Psicólogo/a
-                        </option>
-
-                        <option value="psiquiatria">
-                          Psiquiatra
-                        </option>
-
-                        <option value="psicopedagogia">
-                          Psicopedagogo/a
-                        </option>
-
-                        <option value="pareja">
-                          Terapeuta de pareja
-                        </option>
-
-                        <option value="no-se">
-                          No estoy seguro/a
-                        </option>
-                      </select>
-                    </div>
-
-                    <div className="mt-4">
-                      <label className="form-label">
-                        Comentarios adicionales
-                      </label>
-
-                      <textarea
-                        className="form-control"
-                        rows="5"
-                        placeholder="Si querés, contanos brevemente qué está pasando o qué te gustaría trabajar en terapia."
-                      />
-                    </div>
                   </>
                 )}
 
-              
                 {tipoUsuario === "profesional" && (
                   <>
                     <hr />
 
-                    <h4 className="mb-3">
-                      Datos profesionales
-                    </h4>
+                    <h4 className="mb-3">Datos profesionales</h4>
 
                     <div className="mb-3">
-                      <label className="form-label">
-                        Especialidad
-                      </label>
-
+                      <label className="form-label">Especialidad</label>
                       <select className="form-select">
-                        <option>
-                          Psicología
-                        </option>
-                        <option>
-                          Psiquiatría
-                        </option>
-                        <option>
-                          Psicopedagogía
-                        </option>
-                        <option>
-                          Terapia de pareja
-                        </option>
+                        <option>Psicología</option>
+                        <option>Psiquiatría</option>
+                        <option>Psicopedagogía</option>
+                        <option>Terapia de pareja</option>
                       </select>
                     </div>
 
                     <div className="mb-3">
-                   <label className="form-label">
-                   Documentación profesional
-                   </label>
-
-                 <input
-                  type="file"
-                  className="form-control"
-                  accept=".pdf,.jpg,.jpeg,.png"
-                  multiple
-                 />
-
-                 <div className="form-text">
-                  Subí tu diploma y matrícula (también podes subir posgrados de especialización u otros documentos que acrediten tu formación).
-                 </div>
-                 </div>
+                      <label className="form-label">
+                        Documentación profesional
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        multiple
+                      />
+                    </div>
 
                     <div className="mb-3">
-                      <label className="form-label">
-                        Valor de consulta
-                      </label>
-
-                      <input
-                        type="number"
-                        className="form-control"
-                      />
+                      <label className="form-label">Valor de consulta</label>
+                      <input type="number" className="form-control" />
                     </div>
                   </>
                 )}
 
                 <button
-                 type="submit"
-                 className="btn w-100 mt-4"
-                 style={{
-                 backgroundColor: "#485c21",
-                 borderColor: "#6B8E23",
-                 color: "white"
-                 }}
-                 >
-                 Registrarse
-                 </button>
+                  type="submit"
+                  className="btn w-100 mt-4"
+                  style={{
+                    backgroundColor: "#485c21",
+                    borderColor: "#6B8E23",
+                    color: "white",
+                  }}
+                >
+                  Registrarse
+                </button>
+                <Link to="/login">Ya tengo cuenta</Link>
               </form>
             </div>
           </div>
