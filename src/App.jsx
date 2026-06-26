@@ -5,6 +5,8 @@ import NavbarComponent from "./components/layouts/NavBarComponent";
 import AboutUs from "./pages/AboutUs";
 import Professionals from "./pages/Professionals";
 import UserSignUp from "./pages/UserSignUp";
+import UserLogin from "./pages/UserLogin";
+import { Link } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ function App() {
             <Route path="/sobre-nosotros" element={<AboutUs />} />
             <Route path="/profesionales" element={<Professionals />} />
             <Route path="/registro" element={<UserSignUp />} />
+            <Route path="/login" element={<UserLogin />} />
           </Routes>
         </main>
 

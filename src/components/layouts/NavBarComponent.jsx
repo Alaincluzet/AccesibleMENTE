@@ -29,7 +29,7 @@ function NavbarComponent() {
           </li>
 
           <li className="nav-item mx-3">
-            <Link className="nav-link" id="logIn">
+            <Link className="nav-link" to="/login">
               Iniciar sesión
             </Link>
           </li>

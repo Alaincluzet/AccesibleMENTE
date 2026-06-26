@@ -1,61 +1,68 @@
-.home-container {
-    min-height: calc(100vh - 90px);
-}
-
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-
-    margin-top: 60px;
-}
-
-.home-card {
-    width: 620px;
-    height: 450px;
-
-    background-color: rgba(193, 204, 173, 0.8);
-
-    border-radius: 50px;
-
-    padding: 40px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.home-card h2 {
-    color: black;
-    font-size: 2rem;
-}
-
-.home-card p {
-    font-size: 1.5rem;
-    line-height: 1.5;
-}
-
-.btn-card {
-    width: 220px;
-    height: 70px;
-
-    align-self: center;
-
-    border: 2px solid white;
-    border-radius: 40px;
-
-    background-color: #bfd48e;
-
-    font-size: 1.3rem;
-
-    cursor: pointer;
-}
-
-.slogan {
-    text-align: center;
-
-    margin-top: 30px;
-
-    color: #5d756d;
-    font-size: 3rem;
-}
+@font-face { 
+    font-family: "Rowdies"; 
+    src: url("/fonts/Rowdies-Regular.ttf") format("truetype"); 
+    font-weight: 700; 
+    font-style: normal; } 
+@font-face { 
+    font-family: "Sora"; 
+    src: url("/fonts/sora-ExtraBold.ttf") format("truetype"); 
+    font-weight: 700; 
+    font-style: normal; } 
+.home-header { 
+    font-family: "Rowdies", sans-serif; 
+    font-weight: 700; 
+    font-size: 64px; 
+    letter-spacing: 1.5px; 
+    margin-top: 35px; 
+    margin-left: 45px; color: #1c3a04;} 
+.home-header h1 { 
+    font-family: "Sora", sans-serif; 
+    font-weight: 800; 
+    font-size: 3.5rem; 
+    margin-bottom: 10px; } 
+.home-header h2 { 
+    max-width: 700px; 
+    text-align: justify; 
+    line-height: 1.6; } 
+.home-header { 
+    font-size: 30px; 
+    letter-spacing: 0; 
+    max-width: 900px; 
+    text-align: justify; 
+    line-height: 1.6; } 
+.home-container { 
+    min-height: calc(100vh - 90px); } 
+.cards-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 80px; 
+    margin-top: 60px; } 
+.home-card { 
+    width: 620px; 
+    height: 450px; 
+    background-color: rgba(193, 204, 173, 0.8); 
+    border-radius: 50px; 
+    padding: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; } 
+.home-card h2 { 
+    color: black; 
+    font-size: 2rem; } 
+.home-card p { 
+    font-size: 1.5rem; 
+    line-height: 1.5; } 
+.btn-card { 
+    width: 220px; 
+    height: 70px; 
+    align-self: center; 
+    border: 2px solid white; 
+    border-radius: 40px; 
+    background-color: #bfd48e; 
+    font-size: 1.3rem; 
+    cursor: pointer; } 
+.slogan { 
+    text-align: 
+    center; margin-top: 30px; 
+    color: #5d756d; 
+    font-size: 3rem; }
