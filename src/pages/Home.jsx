@@ -40,6 +40,30 @@ function Home() {
           </Link>
         </div>
       </section>
+      <section className="hero-background-text">
+      <h2>La salud al alcance de todos</h2>
+      </section>
+
+    
+      <section className="home-simbolos">
+        <img
+          src="/simbolos web1.png"
+          alt="Equilibrio emocional"
+          className="simbolo"
+        />
+
+        <img
+          src="/simbolos web2.png"
+          alt="Poder y acción"
+          className="simbolo"
+        />
+
+        <img
+          src="/simbolos web3.png"
+          alt="Tranquilidad y espacio"
+          className="simbolo"
+        />
+      </section>
     </main>
   );
 }
