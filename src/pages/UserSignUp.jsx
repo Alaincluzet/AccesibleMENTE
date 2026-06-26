@@ -7,7 +7,7 @@ function UserSignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [tieneAntecedentes, setTieneAntecedentes] = useState("");
   const [tomaMedicacion, setTomaMedicacion] = useState(false);
-  const [cedula, setCedula] = useState(""); // 👈 NUEVO
+  const [cedula, setCedula] = useState("");
 
   return (
     <div className="container py-5">
@@ -18,7 +18,6 @@ function UserSignUp() {
               <h2 className="text-center mb-4">Registro</h2>
 
               <form>
-             
                 <div className="mb-3">
                   <label className="form-label">Tipo de usuario</label>
 
@@ -33,12 +32,9 @@ function UserSignUp() {
                   </select>
                 </div>
 
-                
                 {tipoUsuario === "profesional" && (
                   <div className="mb-3">
-                    <label className="form-label">
-                      Cédula de identidad
-                    </label>
+                    <label className="form-label">Cédula de identidad</label>
 
                     <input
                       type="text"
@@ -51,19 +47,16 @@ function UserSignUp() {
                   </div>
                 )}
 
-               
                 <div className="mb-3">
                   <label className="form-label">Nombre completo</label>
                   <input type="text" className="form-control" />
                 </div>
 
-                
                 <div className="mb-3">
                   <label className="form-label">Correo electrónico</label>
                   <input type="email" className="form-control" required />
                 </div>
 
-               
                 <div className="mb-3">
                   <label className="form-label">Teléfono</label>
                   <input
@@ -74,7 +67,6 @@ function UserSignUp() {
                   />
                 </div>
 
-               
                 <div className="mb-3">
                   <label className="form-label">Fecha de nacimiento</label>
                   <input
@@ -87,7 +79,6 @@ function UserSignUp() {
                   />
                 </div>
 
-              
                 {tipoUsuario === "paciente" && (
                   <>
                     <hr />
@@ -216,9 +207,7 @@ function UserSignUp() {
                       </label>
                     </div>
 
-                    <h4 className="mt-4">
-                      Antecedentes de salud mental
-                    </h4>
+                    <h4 className="mt-4">Antecedentes de salud mental</h4>
 
                     <div className="form-check">
                       <input
@@ -227,9 +216,7 @@ function UserSignUp() {
                         name="antecedentes"
                         value="no"
                         checked={tieneAntecedentes === "no"}
-                        onChange={(e) =>
-                          setTieneAntecedentes(e.target.value)
-                        }
+                        onChange={(e) => setTieneAntecedentes(e.target.value)}
                       />
                       <label className="form-check-label">
                         Nunca he recibido atención
@@ -243,9 +230,7 @@ function UserSignUp() {
                         name="antecedentes"
                         value="si"
                         checked={tieneAntecedentes === "si"}
-                        onChange={(e) =>
-                          setTieneAntecedentes(e.target.value)
-                        }
+                        onChange={(e) => setTieneAntecedentes(e.target.value)}
                       />
                       <label className="form-check-label">
                         Sí, he recibido atención anteriormente
@@ -280,10 +265,7 @@ function UserSignUp() {
                             <label className="form-label">
                               ¿Qué medicación?
                             </label>
-                            <textarea
-                              className="form-control"
-                              rows="3"
-                            />
+                            <textarea className="form-control" rows="3" />
                           </div>
                         )}
                       </>
@@ -291,7 +273,6 @@ function UserSignUp() {
                   </>
                 )}
 
-               
                 {tipoUsuario === "profesional" && (
                   <>
                     <hr />
@@ -321,9 +302,7 @@ function UserSignUp() {
                     </div>
 
                     <div className="mb-3">
-                      <label className="form-label">
-                        Valor de consulta
-                      </label>
+                      <label className="form-label">Valor de consulta</label>
                       <input type="number" className="form-control" />
                     </div>
                   </>
