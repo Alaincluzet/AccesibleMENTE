@@ -305,6 +305,24 @@ function UserSignUp() {
                       <label className="form-label">Valor de consulta</label>
                       <input type="number" className="form-control" />
                     </div>
+                    <div className="mb-3">
+                      <label className="form-label">
+                        Acepto términos y condiciones
+                      </label>
+                      <select className="form-select">
+                        <option>Sí</option>
+                        <option>No</option>
+                      </select>
+                      <p>
+                        Terminos y condiciones: El profesional acepta realizar 4
+                        horas semanales de forma gratuita para aquellos
+                        pacientes que no cuenten con recursos económicos para
+                        tener una terapia de forma sostenida. En caso de no
+                        aceptar dichos términos y condiciones, para hacer uso de
+                        Accesiblemente deberá abonar una mensualidad de $990
+                        uruguayos.
+                      </p>
+                    </div>
                   </>
                 )}
 
