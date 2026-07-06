@@ -27,7 +27,6 @@ function UserLogin() {
               <h2 className="text-center mb-4">Inicio de sesión</h2>
 
               <form onSubmit={handleSubmit}>
-               
                 <div className="mb-3">
                   <label className="form-label">Tipo de usuario</label>
 
@@ -36,7 +35,8 @@ function UserLogin() {
                     value={tipoUsuario}
                     onChange={(e) => {
                       setTipoUsuario(e.target.value);
-                      setLoginId(""); 
+                      setLoginId("");
+                      setPassword(""); 
                     }}
                   >
                     <option value="">Seleccionar</option>
@@ -47,42 +47,41 @@ function UserLogin() {
 
                
                 {tipoUsuario && (
-                  <div className="mb-3">
-                    <label className="form-label">
-                      {tipoUsuario === "paciente"
-                        ? "Correo electrónico"
-                        : "Cédula de identidad"}
-                    </label>
+                  <>
+                    <div className="mb-3">
+                      <label className="form-label">
+                        {tipoUsuario === "paciente"
+                          ? "Correo electrónico"
+                          : "Cédula de identidad"}
+                      </label>
 
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={loginId}
-                      onChange={(e) => setLoginId(e.target.value)}
-                      placeholder={
-                        tipoUsuario === "paciente"
-                          ? "ej: correo@email.com"
-                          : "ej: 12345678"
-                      }
-                      required
-                    />
-                  </div>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={loginId}
+                        onChange={(e) => setLoginId(e.target.value)}
+                        placeholder={
+                          tipoUsuario === "paciente"
+                            ? "ej: correo@email.com"
+                            : "ej: 12345678"
+                        }
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Contraseña</label>
+
+                      <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Ingresá tu contraseña"
+                        required
+                      />
+                    </div>
+                  </>
                 )}
-
-               
-                <div className="mb-3">
-                  <label className="form-label">Contraseña</label>
-
-                  <input
-                    type="password"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-
-                
                 <button
                   type="submit"
                   className="btn w-100 mt-3"
@@ -91,19 +90,21 @@ function UserLogin() {
                     borderColor: "#6B8E23",
                     color: "white",
                   }}
+                  disabled={!tipoUsuario}
                 >
                   Iniciar sesión
                 </button>
+
                 <p className="text-center mt-3">
-                 ¿No tenés cuenta? <Link to="/registro">Registrate</Link>
-               </p>
+                  ¿No tenés cuenta? <Link to="/registro">Registrate</Link>
+                </p>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+      );
 }
 
 export default UserLogin;
