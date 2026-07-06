@@ -313,14 +313,16 @@ function UserSignUp() {
                         <option>Sí</option>
                         <option>No</option>
                       </select>
-                      <p>
-                        Terminos y condiciones: El profesional acepta realizar 4
-                        horas semanales de forma gratuita para aquellos
-                        pacientes que no cuenten con recursos económicos para
-                        tener una terapia de forma sostenida. En caso de no
-                        aceptar dichos términos y condiciones, para hacer uso de
-                        Accesiblemente deberá abonar una mensualidad de $990
-                        uruguayos.
+                      <p className="terms-and-conditions">
+                        Terminos y condiciones: El profesional acepta tomar de 1
+                        a 3 pacientes pro-bono para aquellos pacientes que no
+                        cuenten con recursos económicos para tener una terapia
+                        de forma sostenida. En caso de no aceptar dichos
+                        términos y condiciones, para hacer uso de Accesiblemente
+                        deberá abonar una mensualidad de $1500 uruguayos. La
+                        mitad de ese dinero va a ser guardado en una cuenta en
+                        común y repartida entre las personas que si aceptaron
+                        tomar pacientes pro-bono
                       </p>
                     </div>
                   </>
